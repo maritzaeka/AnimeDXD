@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- TOP BAR -->
+    <View
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:background="#222222"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- SCROLLABLE SECTION -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- SECTION 1: About Us -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="610dp"
+                android:orientation="vertical"
+                android:background="@drawable/about"
+                android:padding="20dp">
+
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="About Us"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/welcomeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome, [Username]!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/logo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:backgroundTintMode="src_in"
+                    android:background="@drawable/rounded_top_about">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="What is AnimeDXD?"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_horizontal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="AnimeDXD is a mobile application built for anime lovers worldwide. It offers a smooth and friendly user experience where you can log in, browse thousands of anime titles, explore news, read manga, and enjoy rich anime content anytime and anywhere.\nWhether you’re a casual fan or an otaku, AnimeDXD is your go-to anime companion."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- SECTION 2: Features -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="527dp"
+                android:orientation="vertical"
+                android:background="@drawable/about"
+                android:padding="20dp">
+
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Our Features"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Feature Boxes -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3D567A"
+                    android:text="🔐 User Login with field validation for secure access"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3D567A"
+                    android:text="📚 Massive anime and manga library with detailed descriptions"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3D567A"
+                    android:text="📰 Latest anime news in a sliding carousel view"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3D567A"
+                    android:text="📱 Tabbed browsing with Home, List, and About navigation"
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#3D567A"
+                    android:text="🖼️ AnimeDXD turns your anime browsing into an immersive experience."
+                    android:textColor="#FFFFFF"
+                    android:padding="12dp"
+                    android:layout_marginBottom="8dp" />
+            </LinearLayout>
+
+            <!-- SECTION 3: Mission -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="527dp"
+                android:orientation="vertical"
+                android:background="@drawable/layang"
+                android:padding="20dp">
+
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Our Mission and Vision"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/tim"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/circle_mask" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/rounded_top_mission"
+                    android:padding="16dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="We built AnimeDXD with a purpose:\n\nto connect anime fans globally.\n\nOur goal is to provide a unified space where fans can stay updated, discover new favorites, and enjoy high-quality anime content. Anime is more than a genre it’s a lifestyle, a culture, and a community.\n\nLet’s explore the anime universe together, one click at a time."
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- BOTTOM BAR -->
+    <View
+        android:id="@+id/bottomBar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#222222"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
