@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginEnd="12dp"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivMangaImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/manga1" />
+
+    <TextView
+        android:id="@+id/tvMangaTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Manga Title"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:paddingTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="1" />
+</LinearLayout>
