@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_awan">
+
+    <!-- Logo -->
+
+    <!-- Form Container -->
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="450dp"
+        android:layout_height="420dp"
+        android:layout_marginTop="25dp"
+        android:contentDescription="Logo"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo" />
+
+    <FrameLayout
+        android:id="@+id/form_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <!-- Background AwanIsi -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="match_parent"
+            android:layout_height="363dp"
+            android:layout_marginBottom="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/awanisii"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:shapeAppearanceOverlay="@style/TopRoundedCorners" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:paddingTop="60dp"
+            android:paddingBottom="0dp">
+
+            <!-- Username Label -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Username"
+                android:layout_marginTop="10dp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp" />
+
+            <!-- Username Field -->
+            <EditText
+                android:id="@+id/usernameField"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/rounded_white"
+                android:hint="Enter username"
+                android:paddingHorizontal="16dp"
+                android:textColor="#000000"
+                android:textColorHint="#888888" />
+
+            <!-- Username Error -->
+            <TextView
+                android:id="@+id/errorUsername"
+                android:layout_width="400dp"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text=""
+                android:textColor="#FF0000"
+                android:textSize="16sp" />
+
+            <!-- Password Label -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:layout_marginBottom="10dp"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <!-- Password Field -->
+            <EditText
+                android:id="@+id/passwordField"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/rounded_white"
+                android:hint="Enter password"
+                android:inputType="textPassword"
+                android:paddingHorizontal="16dp"
+                android:textColor="#000000"
+                android:textColorHint="#888888" />
+
+            <!-- Password Error -->
+            <TextView
+                android:id="@+id/errorPassword"
+                android:layout_width="400dp"
+                android:layout_marginLeft="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text=""
+                android:textColor="#FF0000"
+                android:textSize="16sp" />
+
+            <!-- Login Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loginButton"
+                android:layout_width="160dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#3A5987"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_marginBottom="0dp"
+                android:text="Login"
+                app:cornerRadius="50dp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>
