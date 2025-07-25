@@ -23,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
         viewBinding = true
@@ -37,30 +37,11 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    implementation(libs.lifecycle.livedata.ktx)
-    implementation(libs.lifecycle.viewmodel.ktx)
-    implementation(libs.navigation.fragment)
-    implementation(libs.navigation.ui)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.google.android.material:material:1.11.0")
-    // Material Design (for TabLayout and BottomNavigationView)
-    implementation ("com.google.android.material:material:1.6.0")
-
-    // ViewPager2
-    implementation ("androidx.viewpager2:viewpager2:1.0.0")
-
-    // RecyclerView
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
-
-    // CardView
-    implementation ("androidx.cardview:cardview:1.0.0")
-
-    // ConstraintLayout (usually already there)
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-
-    // Fragment (usually already there)
-    implementation ("androidx.fragment:fragment:1.5.7")
+    implementation ("androidx.navigation:navigation-fragment:2.7.7")
+    implementation ("androidx.navigation:navigation-ui:2.7.7")
 
 }

@@ -1,72 +1,97 @@
-package com.example.animedxd; // Replace with your package name
+package com.example.animedxd;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.example.animedxd.R;
-import com.example.animedxd.ui.home.HomepageFragment;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast; // For simple toast messages
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView; // Declared here
+    private Toolbar toolbar;
+    private BottomNavigationView navBottom;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Set the new main activity layout
+        setContentView(R.layout.activity_main);
 
-        // Corrected line: Use bottomNavigationView as the ID
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        // Setup Toolbar
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false); // Hide default title
 
-        // Load the default fragment when the activity is created (e.g., HomepageFragment)
-        if (savedInstanceState == null) {
-            loadFragment(new HomepageFragment());
-        }
+        // Setup Navigation
+        navBottom = findViewById(R.id.nav_bottom);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 
-        // Handle Bottom Navigation View item selections
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
-                if (itemId == R.id.navigation_home) {
-                    // Load the HomepageFragment when Home is selected
-                    loadFragment(new HomepageFragment());
-                    return true;
-                } else if (itemId == R.id.navigation_home) {
-                    // Placeholder for List Fragment
-                    Toast.makeText(MainActivity.this, "List Clicked - Load List Fragment", Toast.LENGTH_SHORT).show();
-                    // Example: loadFragment(new ListFragment());
-                    return true;
-                } else if (itemId == R.id.navigation_home) {
-                    // Placeholder for About Fragment
-                    Toast.makeText(MainActivity.this, "About Clicked - Load About Fragment", Toast.LENGTH_SHORT).show();
-                    // Example: loadFragment(new AboutFragment());
-                    return true;
-                }
-                return false;
+        // Configure the fragments that should be considered as top-level destinations
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home,
+                R.id.navigation_list,
+                R.id.navigation_about
+        ).build();
+
+        NavigationUI.setupWithNavController(navBottom, navController);
+
+        // Listener for BottomNavigationView
+        navBottom.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            int currentId = navController.getCurrentDestination().getId();
+
+            if (currentId == id) {
+                return false; // Already on the same page, don't navigate again
             }
+
+            // Show toast according to menu item
+            if (id == R.id.navigation_home) {
+                Toast.makeText(this, "Home pressed", Toast.LENGTH_SHORT).show();
+            } else if (id == R.id.navigation_list) {
+                Toast.makeText(this, "List pressed", Toast.LENGTH_SHORT).show();
+            } else if (id == R.id.navigation_about) {
+                Toast.makeText(this, "About pressed", Toast.LENGTH_SHORT).show();
+            }
+
+            // Navigate with popUpTo to clear previous fragments
+            NavOptions navOptions = new NavOptions.Builder()
+                    .setPopUpTo(R.id.mobile_navigation, true)
+                    .setLaunchSingleTop(true)
+                    .build();
+
+            navController.navigate(id, null, navOptions);
+            return true;
         });
-
-        // Set the default selected item for the bottom navigation (e.g., Home)
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
     }
 
-    /**
-     * Helper method to load a fragment into the FragmentContainerView.
-     * @param fragment The fragment to load.
-     */
-    private void loadFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        // Replace the content of the fragment_container with the new fragment
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int id = item.getItemId();
+//        int currentId = navController.getCurrentDestination().getId();
+//
+//        if (id == R.id.action_notifications && currentId != R.id.navigation_notifications) {
+//            navController.navigate(R.id.navigation_notifications);
+//            return true;
+//        } else if (id == R.id.action_profile && currentId != R.id.navigation_profile) {
+//            navController.navigate(R.id.navigation_profile);
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 }
