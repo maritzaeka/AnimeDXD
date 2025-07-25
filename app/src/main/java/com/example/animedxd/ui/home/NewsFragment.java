@@ -140,7 +140,7 @@ public class NewsFragment extends Fragment {
                 "An anime adaptation of Kureha's 'Oni no Hanayome' (The Ogre's Bride) light novel was announced by publishing company Starts Shuppan on Tuesday. Kureha o..."
         ));
         articles.add(new NewsArticle(
-                R.drawable.news_novelOni,
+                R.drawable.news_noveloni,
                 "'Dr. Stone: Science Futu...",
                 "The official website of the Dr. Stone anime series revealed two new cast, theme songs, and the main promotional video for the second part of Dr. Stone..."
         ));
