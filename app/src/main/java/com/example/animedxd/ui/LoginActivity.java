@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.animedxd.MainActivity;
 import com.example.animedxd.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -63,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Login success!", Toast.LENGTH_SHORT).show();
 
                 // Ganti ke halaman lain
-                Intent intent = new Intent(this, AboutUsActivity.class); // ganti nama class jika beda
+                Intent intent = new Intent(this, MainActivity.class); // ganti nama class jika beda
                 startActivity(intent);
                 finish();
             }
