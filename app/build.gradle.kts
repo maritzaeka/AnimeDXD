@@ -45,5 +45,22 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation("com.google.android.material:material:1.11.0")
+    // Material Design (for TabLayout and BottomNavigationView)
+    implementation ("com.google.android.material:material:1.6.0")
+
+    // ViewPager2
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+
+    // RecyclerView
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+
+    // CardView
+    implementation ("androidx.cardview:cardview:1.0.0")
+
+    // ConstraintLayout (usually already there)
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    // Fragment (usually already there)
+    implementation ("androidx.fragment:fragment:1.5.7")
 
 }
