@@ -1,6 +1,7 @@
 package com.example.animedxd.ui.about;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,9 @@ public class AboutUsFragment extends Fragment {
         TextView welcomeText = view.findViewById(R.id.welcomeText);
         String username = LoginActivity.GLOBAL_USERNAME;
         welcomeText.setText("Welcome, " + username + "!");
+
+        TextView aboutTextView = view.findViewById(R.id.aboutTextView);
+        aboutTextView.setText(Html.fromHtml(getString(R.string.about_description), Html.FROM_HTML_MODE_LEGACY));
 
         return view;
     }
