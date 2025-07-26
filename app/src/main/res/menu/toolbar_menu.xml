@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Ikon hamburger -->
+    <ImageView
+        android:id="@+id/hamburger_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:src="@drawable/ic_menu"
+        android:contentDescription="Menu"
+        android:layout_gravity="start"
+        android:tint="@android:color/white" />
+
+    <!-- Judul tengah -->
+    <TextView
+        android:id="@+id/title_center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="ANIMEDXD"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-condensed" />
+
+</menu>

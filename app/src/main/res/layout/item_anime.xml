@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        card_view:cardCornerRadius="20dp"
+        card_view:cardElevation="8dp"
+        card_view:cardBackgroundColor="@color/card_list"
+        android:layout_marginHorizontal="12dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="100dp"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:layout_marginRight="8dp"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/imageview"
+                android:layout_alignTop="@id/imageview"
+                android:textColor="@color/font_dark_blue"
+                tools:text="Title"
+                android:layout_marginStart="12dp"
+                />
+
+            <TextView
+                android:id="@+id/genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_toEndOf="@id/imageview"
+                android:layout_below="@id/title"
+                android:textColor="@color/black"
+                android:layout_marginStart="12dp"
+                tools:text="Genre, Genre" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_toEndOf="@id/imageview"
+                android:layout_below="@id/genre"
+                android:textColor="@color/black"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="8dp"
+                tools:text="Description" />
+
+            <Button
+                android:id="@+id/view_more_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="12dp"
+                android:text="View More"
+                android:backgroundTint="@color/font_dark_blue" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
