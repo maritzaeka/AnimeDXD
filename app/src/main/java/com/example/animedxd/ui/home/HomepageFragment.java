@@ -10,13 +10,15 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.animedxd.R;
+import com.example.animedxd.ui.LoginActivity;
 import com.example.animedxd.ui.home.MangaFragment;
 import com.example.animedxd.ui.home.NewsFragment;
 import com.google.android.material.tabs.TabLayout;
-// Removed import for TabLayoutMediator as we'll handle tab selection manually
+import com.google.android.material.tabs.TabLayoutMediator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class HomepageFragment extends Fragment {
 
@@ -32,17 +34,38 @@ public class HomepageFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.homepage_activity, container, false);
 
+        TextView welcomeMessage = view.findViewById(R.id.welcomeMessage);
+        String username = LoginActivity.GLOBAL_USERNAME;
+        welcomeMessage.setText("Welcome, " + username + "!");
+
         tabLayout = view.findViewById(R.id.tabLayout);
         viewPager = view.findViewById(R.id.viewPager);
+
+        // Ensure the TabLayout is empty before attaching the mediator
+        // This is a crucial step to prevent duplicate tabs if they were somehow added elsewhere
+        tabLayout.removeAllTabs();
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), getLifecycle());
         viewPager.setAdapter(viewPagerAdapter);
 
-        // Manually add tabs and set up listener for no slide transition
-        tabLayout.addTab(tabLayout.newTab().setText("News"));
-        tabLayout.addTab(tabLayout.newTab().setText("Manga"));
+        // Re-link TabLayout with ViewPager2 using TabLayoutMediator
+        // This will automatically create tabs based on the ViewPager's adapter getItemCount()
+        // and set their text based on the lambda.
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> {
+                    // Set the text for each tab based on its position
+                    // This will ensure the text is "NEWS" and "MANGA"
+                    switch (position) {
+                        case 0:
+                            tab.setText("NEWS");
+                            break;
+                        case 1:
+                            tab.setText("MANGA");
+                            break;
+                    }
+                }).attach();
 
-        // Add a listener to handle tab selection
+        // Add a listener to handle tab selection without animation (no slide)
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -61,14 +84,7 @@ public class HomepageFragment extends Fragment {
             }
         });
 
-        // Add a listener to synchronize ViewPager2 swipes with TabLayout
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                tabLayout.selectTab(tabLayout.getTabAt(position));
-            }
-        });
+        viewPager.setUserInputEnabled(false);
 
         return view;
     }
@@ -97,7 +113,7 @@ public class HomepageFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return 2; // Number of tabs
+            return 2; // Number of tabs (News and Manga)
         }
     }
 }

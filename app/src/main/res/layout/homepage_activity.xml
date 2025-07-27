@@ -4,51 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0F2F7"
     tools:context=".ui.home.HomepageFragment">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#42A5F5"
-        android:elevation="4dp"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu"
-            android:contentDescription="Menu"
-            android:paddingEnd="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ANIMEDXD"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center" />
-
-    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/welcomeMessage"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome, !"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:paddingStart="16dp"
+        android:text="Welcome, [Username]!"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="0dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -57,22 +29,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
-        app:tabIndicatorHeight="0dp"
-        app:tabSelectedTextColor="@android:color/black"
-        app:tabTextColor="#757575"
-        app:tabRippleColor="@android:color/transparent"
-        app:tabMode="fixed"
-        app:tabGravity="fill"
-        app:tabBackground="@drawable/tab_selector"
-        app:tabTextAppearance="@style/TabTextStyle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage">
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="fixed"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabSelectedTextColor="@android:color/black"
+        app:tabTextAppearance="@style/TabTextStyle"
+        app:tabTextColor="#757575">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="News" />
+            android:text="News"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
