@@ -40,6 +40,22 @@ public class AnimeData {
                 "In a world teetering on the edge of political instability, Twilight — a legendary spy known for his flawless missions — is tasked with his most delicate assignment yet: infiltrate an elite private school to get close to a key political figure. But to do so, he must create a fake family. Adopting the identity of Loid Forger, he hastily assembles a 'perfect' family: a wife, Yor, who is secretly a deadly assassin, and a daughter, Anya, who can read minds. Unbeknownst to each other, the Forgers navigate their daily lives while hiding their true identities, leading to hilarious misunderstandings and heartwarming moments. 'Spy x Family' masterfully blends spy intrigue, slice-of-life comedy, and family bonding in a refreshing, feel-good series that explores love, deception, and what it truly means to belong.",
                 R.drawable.spy_x_family
         ));
+
+        animeList.add(new Anime(
+                "One Piece",
+                "Action, Adventure, Fantasy",
+                "Barely surviving in a barrel after passing through a terrible whirlpool at sea, carefree Monkey D. Luffy ends up aboard a ship under attack by fearsome pirates. Despite being a naive-looking teenager, Luffy is actually a formidable fighter with a body made of rubber after eating a Devil Fruit. With an unshakable dream to become the Pirate King, he sets off on a grand adventure across dangerous seas, gathering loyal crewmates, battling powerful enemies, and searching for the legendary treasure known as the One Piece.",
+                R.drawable.onepiece
+        ));
+
+
+        animeList.add(new Anime(
+                "Kimetsu No Yaiba",
+                "Action, Supernatural",
+                "Ever since the death of his father, the burden of supporting his family has fallen on Tanjirou Kamado's shoulders. Living modestly in the mountains, he works hard and maintains hope for a better future. But his life takes a dark turn when he returns home to find his entire family slaughtered by demons, with only his sister Nezuko surviving—transformed into a demon herself. Determined to save her and avenge his family, Tanjirou joins the Demon Slayer Corps, facing terrifying creatures and uncovering secrets of a brutal, hidden world.",
+                R.drawable.kimetsu_no_yaiba
+        ));
+
     }
 
 }
