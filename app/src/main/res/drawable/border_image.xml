@@ -1,0 +1,10 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@android:color/transparent"/> <!-- Inside stays transparent -->
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/font_dark_blue" /> <!-- Change to any color you want -->
+    <!-- Optional: rounded corners -->
+</shape>
