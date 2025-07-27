@@ -55,7 +55,8 @@ public class DetailFragment extends Fragment {
         }
 
         // Find the button (your LinearLayout)
-        LinearLayout buttonReview = view.findViewById(R.id.ButtonReview);
+        Button buttonReview = view.findViewById(R.id.ButtonReview);
+
 
         // Set click listener
         buttonReview.setOnClickListener(v -> {
