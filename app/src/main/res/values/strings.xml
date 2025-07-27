@@ -6,7 +6,7 @@
     <string name="title_list">List</string>
     <string name="title_about">About</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 
     <string name="about_description">
@@ -15,4 +15,8 @@
         to connect anime fans globally. Our goal is to provide a unified space where fans can stay updated, discover new favorites, and enjoy high-quality anime content. Anime is more than a genre – it’s a lifestyle, a culture, and a community. Let’s explore the anime universe together, one click at a time.
     ]]>
 </string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
