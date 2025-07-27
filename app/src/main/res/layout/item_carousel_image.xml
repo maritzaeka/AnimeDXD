@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/carouselImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="Carousel Image"
+        android:src="@drawable/car_jjk" /> <!-- Default placeholder -->
+
+    <!-- You can add text overlays or other elements here if your carousel images have titles/descriptions -->
+
+</FrameLayout>
