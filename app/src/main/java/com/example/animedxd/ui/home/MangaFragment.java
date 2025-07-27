@@ -51,36 +51,36 @@ public class MangaFragment extends Fragment {
     private List<MangaItem> getPopularMangaData() {
         List<MangaItem> mangaList = new ArrayList<>();
         mangaList.add(new MangaItem("Death Note", "Supernatural, Suspense", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure", R.drawable.man_nar));
+        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure, Fantasy", R.drawable.man_nar));
         mangaList.add(new MangaItem("Jujutsu Kaisen", "Action, Supernatural", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("Spy X Family", "Action, Fantasy", R.drawable.man_spy));
-        mangaList.add(new MangaItem("My Hero Academia", "Action, Superhero", R.drawable.man_spy));
-        mangaList.add(new MangaItem("One Piece", "Adventure, Fantasy", R.drawable.man_nar));
-        mangaList.add(new MangaItem("Chainsaw Man", "Action, Horror", R.drawable.man_detnot));
+        mangaList.add(new MangaItem("Spy X Family", "Action, Comedy", R.drawable.man_spy));
+        mangaList.add(new MangaItem("My Hero Academia", "Action", R.drawable.man_myha));
+        mangaList.add(new MangaItem("One Piece", "Action, Adventure, Fantasy", R.drawable.man_opis));
+        mangaList.add(new MangaItem("Chainsaw Man", "Action, Fantasy", R.drawable.man_cenmen));
         return mangaList;
     }
 
     private List<MangaItem> getLatestMangaData() {
         List<MangaItem> mangaList = new ArrayList<>();
+        mangaList.add(new MangaItem("Attack on Titan", "Action, Drama, Suspense", R.drawable.man_aot));
+        mangaList.add(new MangaItem("Demon Slayer", "Action, Supernatural", R.drawable.man_demyer));
         mangaList.add(new MangaItem("Death Note", "Supernatural, Suspense", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure", R.drawable.man_nar));
+        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure, Fantasy", R.drawable.man_nar));
         mangaList.add(new MangaItem("Jujutsu Kaisen", "Action, Supernatural", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("One Piece", "Adventure, Fantasy", R.drawable.man_spy));
-        mangaList.add(new MangaItem("Chainsaw Man", "Action, Horror", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Attack on Titan", "Action, Fantasy", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("Demon Slayer", "Action, Fantasy", R.drawable.man_detnot));
+        mangaList.add(new MangaItem("One Piece", "Action, Adventure, Fantasy", R.drawable.man_opis));
+        mangaList.add(new MangaItem("Chainsaw Man", "Action, Fantasy", R.drawable.man_cenmen));
         return mangaList;
     }
 
     private List<MangaItem> getRecommendationData() {
         List<MangaItem> mangaList = new ArrayList<>();
+        mangaList.add(new MangaItem("Tokyo Ghoul", "Action, Fantasy, Horror, Suspense", R.drawable.man_tokgho));
+        mangaList.add(new MangaItem("One Punch Man", "Action, Comedy", R.drawable.man_opm));
+        mangaList.add(new MangaItem("One Piece", "Action, Adventure, Fantasy", R.drawable.man_opis));
+        mangaList.add(new MangaItem("Chainsaw Man", "Action, Fantasy", R.drawable.man_cenmen));
         mangaList.add(new MangaItem("Death Note", "Supernatural, Suspense", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure", R.drawable.man_nar));
+        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure, Fantasy", R.drawable.man_nar));
         mangaList.add(new MangaItem("Jujutsu Kaisen", "Action, Supernatural", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("One Piece", "Adventure, Fantasy", R.drawable.man_spy));
-        mangaList.add(new MangaItem("Chainsaw Man", "Action, Horror", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Tokyo Ghoul", "Dark Fantasy, Horror", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("One Punch Man", "Action, Comedy", R.drawable.man_spy));
         return mangaList;
     }
 }

@@ -22,7 +22,5 @@ public class ListViewHolder extends RecyclerView.ViewHolder {
         titleView = itemView.findViewById(R.id.title);
         genreView = itemView.findViewById(R.id.genre);
         descView = itemView.findViewById(R.id.description);
-
-
     }
 }
