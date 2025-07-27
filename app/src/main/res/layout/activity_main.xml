@@ -1,9 +1,9 @@
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
         <!-- TOOLBAR -->
         <androidx.appcompat.widget.Toolbar
@@ -16,6 +16,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:titleTextColor="@android:color/white" />
 
+        <!-- GARIS PUTIH BAWAH TOOLBAR -->
+        <View
+            android:id="@+id/topDivider"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <!-- NAV HOST -->
         <fragment
             android:id="@+id/nav_host_fragment_activity_main"
@@ -24,25 +34,46 @@
             android:layout_height="0dp"
             app:defaultNavHost="true"
             app:navGraph="@navigation/mobile_navigation"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/topDivider"
+            app:layout_constraintBottom_toTopOf="@id/bottomDivider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- GARIS PUTIH ATAS BOTTOM NAV -->
+        <View
+            android:id="@+id/bottomDivider"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@color/white"
             app:layout_constraintBottom_toTopOf="@id/nav_bottom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-
-
+        <!-- BOTTOM NAVIGATION -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_bottom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
             android:background="@color/blue_primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:menu="@menu/bottom_nav_menu"
             app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"/>
+            app:itemTextColor="@color/white" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- LOGO TENGAH TOOLBAR -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Logo Tengah"
+            app:srcCompat="@drawable/nav_logo"
+            app:layout_constraintTop_toTopOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
