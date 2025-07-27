@@ -4,24 +4,26 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="24dp"
-    android:background="@android:color/white">
+    android:background="@drawable/review_button">
 
     <TextView
         android:id="@+id/dialog_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Comment"
-        android:textSize="16sp"
-        android:paddingBottom="16dp" />
+        android:paddingBottom="16dp"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/font_dark_blue"/>
     <TextView
         android:id="@+id/errorMsg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Please write something!"
-        android:textColor="@color/blue_coba"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:visibility="gone"
-
-
         />
 
 
@@ -50,5 +52,6 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Post" />
+        android:text="Post"
+        android:backgroundTint="@color/font_dark_blue"/>
 </LinearLayout>
