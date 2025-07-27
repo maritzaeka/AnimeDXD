@@ -105,7 +105,7 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingHorizontal="20dp"
@@ -142,21 +142,14 @@
                             android:text="Put your review"
                             android:layout_margin="15dp"
                             />
-                        <LinearLayout
+                        <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:padding="10dp"
                             android:background="@color/white"
                             android:id="@+id/ButtonReview"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Here!!"
-                                />
-
-                        </LinearLayout>
+                            android:text="Here!!" />
                     </LinearLayout>
 
                 </LinearLayout>
