@@ -135,29 +135,29 @@ public class NewsFragment extends Fragment {
     private List<NewsArticle> getNewsArticlesData() {
         List<NewsArticle> articles = new ArrayList<>();
         articles.add(new NewsArticle(
-                R.drawable.news_lovelive,
-                "Novel 'Oni no Hanayome'...",
-                "An anime adaptation of Kureha's 'Oni no Hanayome' (The Ogre's Bride) light novel was announced by publishing company Starts Shuppan on Tuesday. Kureha o..."
-        ));
-        articles.add(new NewsArticle(
                 R.drawable.news_noveloni,
-                "'Dr. Stone: Science Futu...",
-                "The official website of the Dr. Stone anime series revealed two new cast, theme songs, and the main promotional video for the second part of Dr. Stone..."
+                "Novel 'Oni no Hanayome' Receives TV Anime Adaptation",
+                "An anime adaptation of Kureha's Oni no Hanayome (The Ogre's Bride) light novel was announced by publishing company Starts Shuppan on Tuesday."
         ));
         articles.add(new NewsArticle(
                 R.drawable.news_drstone,
-                "'Love Live! Hasunosora J...",
-                "The 4th live concert of the Hasunosora Jogakuin School Idol Club is set to take place on November 25-26, 2023, at the Saitama Super Arena..."
-        ));
-        articles.add(new NewsArticle(
-                R.drawable.news_drstone,
-                "Another Anime News",
-                "This is a placeholder for another exciting anime news article. Stay tuned for more updates!"
+                "'Dr. Stone: Science Future' Part 2 Announces New Cast, Theme Songs",
+                "The official website of the Dr. Stone anime series revealed two new cast, theme songs, and the main promotional video for the second part of Dr. Stone."
         ));
         articles.add(new NewsArticle(
                 R.drawable.news_lovelive,
-                "Final News Update",
-                "The latest and greatest news from the anime world, bringing you all the hot topics and discussions."
+                "'Love Live! Hasunosora Jogakuin School Idol Club' 3D Anime Movie Announced",
+                "The 4th live concert of the Hasunosora Jogakuin School Idol Club (Hasunosora Girls' High School Idol Club) announced a 3D anime movie on Sunday."
+        ));
+        articles.add(new NewsArticle(
+                R.drawable.news_tenseishitara,
+                "'Tensei shitara Dragon no Tamago datta' Unveils Main Staff, Teaser Promo for 2026",
+                "The official website of the Tensei shitara Dragon no Tamago datta (Reincarnated as a Dragon Hatchling) television anime unveiled the main staff on Friday."
+        ));
+        articles.add(new NewsArticle(
+                R.drawable.news_disneytwisted,
+                "'Disney: Twisted Wonderland the Animation' Announces Additional Cast Members",
+                "The official website for the Disney: Twisted-Wonderland the Animation anime series announced 23 additional cast premiere on Disney+ in October 2025."
         ));
         return articles;
     }

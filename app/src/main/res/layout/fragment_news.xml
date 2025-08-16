@@ -11,8 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:background="@color/white"
+        android:paddingTop="35dp"
         android:layout_marginLeft="17dp"
         android:layout_marginRight="17dp">
 
@@ -20,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:layout_marginBottom="16dp">
 
             <ImageButton
@@ -35,15 +38,15 @@
                 app:tint="@android:color/black" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="259dp"
-                android:layout_height="143dp"
+                android:layout_width="272dp"
+                android:layout_height="154dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp">
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/imageCarouselViewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"/>
 
             </androidx.cardview.widget.CardView>
 

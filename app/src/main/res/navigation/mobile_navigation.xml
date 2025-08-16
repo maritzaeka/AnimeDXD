@@ -22,4 +22,11 @@
         android:name="com.example.animedxd.ui.about.AboutUsFragment"
         android:label="@string/title_about"
         tools:layout="@layout/aboutus" />
+
+    <fragment
+        android:id="@+id/navigation_detail"
+        android:name="com.example.animedxd.ui.detail.DetailFragment"
+        android:label="Anime Detail"
+        tools:layout="@layout/fragment_detail" />
+
 </navigation>

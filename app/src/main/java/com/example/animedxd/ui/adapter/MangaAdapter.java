@@ -9,15 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.animedxd.R;
-import com.example.animedxd.ui.model.MangaItem;
+import com.example.animedxd.model.Anime;
 
 import java.util.List;
 
 public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.MangaViewHolder> {
 
-    private List<MangaItem> mangaList;
+    private List<Anime> mangaList;
+    private OnItemClickCallback onItemClickCallback;
 
-    public MangaAdapter(List<MangaItem> mangaList) {
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+    public MangaAdapter(List<Anime> mangaList) {
         this.mangaList = mangaList;
     }
 
@@ -31,11 +35,16 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.MangaViewHol
 
     @Override
     public void onBindViewHolder(@NonNull MangaViewHolder holder, int position) {
-        // Bind data to the views in each item
-        MangaItem mangaItem = mangaList.get(position);
+        Anime mangaItem = mangaList.get(position);
         holder.mangaImage.setImageResource(mangaItem.getImageResId());
         holder.mangaTitle.setText(mangaItem.getTitle());
         holder.mangaGenre.setText(mangaItem.getGenre());
+
+        holder.itemView.setOnClickListener(v ->{
+            if(onItemClickCallback!=null){
+                onItemClickCallback.onItemClicked(mangaList.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
@@ -44,9 +53,6 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.MangaViewHol
         return mangaList.size();
     }
 
-    /**
-     * ViewHolder class to hold references to the views in each item layout.
-     */
     public static class MangaViewHolder extends RecyclerView.ViewHolder {
         ImageView mangaImage;
         TextView mangaTitle;
@@ -59,4 +65,8 @@ public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.MangaViewHol
             mangaGenre = itemView.findViewById(R.id.mangaGenre);
         }
     }
+        public interface OnItemClickCallback{
+            void onItemClicked(Anime data);
+        }
+
 }
