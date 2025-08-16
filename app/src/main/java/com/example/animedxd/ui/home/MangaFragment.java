@@ -9,10 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.animedxd.R;
+import com.example.animedxd.model.Anime;
+import com.example.animedxd.model.AnimeData;
 import com.example.animedxd.ui.adapter.MangaAdapter;
+import com.example.animedxd.ui.detail.DetailFragment;
 import com.example.animedxd.ui.model.MangaItem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MangaFragment extends Fragment {
@@ -29,58 +33,81 @@ public class MangaFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_manga, container, false);
 
+        if(AnimeData.getAnimeList().isEmpty()){
+            AnimeData.initializeData();
+        }
+
         recyclerViewPopularManga = view.findViewById(R.id.recyclerViewPopularManga);
         recyclerViewLatestManga = view.findViewById(R.id.recyclerViewLatestManga);
         recyclerRecommendationForYou = view.findViewById(R.id.recyclerRecommendationForYou);
 
-        recyclerViewPopularManga.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        MangaAdapter popularMangaAdapter = new MangaAdapter(getPopularMangaData());
-        recyclerViewPopularManga.setAdapter(popularMangaAdapter);
-
-        recyclerViewLatestManga.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        MangaAdapter latestMangaAdapter = new MangaAdapter(getLatestMangaData());
-        recyclerViewLatestManga.setAdapter(latestMangaAdapter);
-
-        recyclerRecommendationForYou.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        MangaAdapter recommendationForYouAdapter = new MangaAdapter(getRecommendationData());
-        recyclerRecommendationForYou.setAdapter(recommendationForYouAdapter);
+        setupRecyclerView(recyclerViewPopularManga, getPopularMangaData());
+        setupRecyclerView(recyclerViewLatestManga, getLatestMangaData());
+        setupRecyclerView(recyclerRecommendationForYou, getRecommendationData());
+//        recyclerViewPopularManga.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+//        MangaAdapter popularMangaAdapter = new MangaAdapter(getPopularMangaData());
+//        recyclerViewPopularManga.setAdapter(popularMangaAdapter);
+//
+//        recyclerViewLatestManga.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+//        MangaAdapter latestMangaAdapter = new MangaAdapter(getLatestMangaData());
+//        recyclerViewLatestManga.setAdapter(latestMangaAdapter);
+//
+//        recyclerRecommendationForYou.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+//        MangaAdapter recommendationForYouAdapter = new MangaAdapter(getRecommendationData());
+//        recyclerRecommendationForYou.setAdapter(recommendationForYouAdapter);
 
         return view;
     }
 
-    private List<MangaItem> getPopularMangaData() {
-        List<MangaItem> mangaList = new ArrayList<>();
-        mangaList.add(new MangaItem("Death Note", "Supernatural, Suspense", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure", R.drawable.man_nar));
-        mangaList.add(new MangaItem("Jujutsu Kaisen", "Action, Supernatural", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("Spy X Family", "Action, Fantasy", R.drawable.man_spy));
-        mangaList.add(new MangaItem("My Hero Academia", "Action, Superhero", R.drawable.man_spy));
-        mangaList.add(new MangaItem("One Piece", "Adventure, Fantasy", R.drawable.man_nar));
-        mangaList.add(new MangaItem("Chainsaw Man", "Action, Horror", R.drawable.man_detnot));
-        return mangaList;
+    private void setupRecyclerView(RecyclerView recyclerView, List<Anime> animeList){
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        MangaAdapter adapter = new MangaAdapter(animeList);
+        recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickCallback(data -> {
+            showSelectedManga(data);
+        });
     }
 
-    private List<MangaItem> getLatestMangaData() {
-        List<MangaItem> mangaList = new ArrayList<>();
-        mangaList.add(new MangaItem("Death Note", "Supernatural, Suspense", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure", R.drawable.man_nar));
-        mangaList.add(new MangaItem("Jujutsu Kaisen", "Action, Supernatural", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("One Piece", "Adventure, Fantasy", R.drawable.man_spy));
-        mangaList.add(new MangaItem("Chainsaw Man", "Action, Horror", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Attack on Titan", "Action, Fantasy", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("Demon Slayer", "Action, Fantasy", R.drawable.man_detnot));
-        return mangaList;
+    private void showSelectedManga(Anime anime){
+        if (getActivity()==null) return;
+
+        View mainContentGroup = getActivity().findViewById(R.id.mainContentGroup);
+        View detailContainer = getActivity().findViewById(R.id.detail_container);
+
+        if(mainContentGroup != null && detailContainer!= null){
+            mainContentGroup.setVisibility(View.GONE);
+            detailContainer.setVisibility(View.VISIBLE);
+        }
+
+        DetailFragment detailFragment = new DetailFragment();
+        Bundle args = new Bundle();
+        args.putString("title", anime.getTitle());
+        args.putString("genre", anime.getGenre());
+        args.putString("synopsis", anime.getDescription());
+        args.putInt("imageRes", anime.getImageResId());
+        detailFragment.setArguments(args);
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.detail_container, detailFragment)
+                .addToBackStack(null)
+                .commit();
     }
 
-    private List<MangaItem> getRecommendationData() {
-        List<MangaItem> mangaList = new ArrayList<>();
-        mangaList.add(new MangaItem("Death Note", "Supernatural, Suspense", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Naruto: Shippuuden", "Action, Adventure", R.drawable.man_nar));
-        mangaList.add(new MangaItem("Jujutsu Kaisen", "Action, Supernatural", R.drawable.man_jjk));
-        mangaList.add(new MangaItem("One Piece", "Adventure, Fantasy", R.drawable.man_spy));
-        mangaList.add(new MangaItem("Chainsaw Man", "Action, Horror", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("Tokyo Ghoul", "Dark Fantasy, Horror", R.drawable.man_detnot));
-        mangaList.add(new MangaItem("One Punch Man", "Action, Comedy", R.drawable.man_spy));
-        return mangaList;
+    private List<Anime> getPopularMangaData() {
+        List<Anime> allAnime = AnimeData.getAnimeList();
+        return new ArrayList<>(allAnime.subList(0, Math.min(5, allAnime.size())));
+    }
+
+    private List<Anime> getLatestMangaData() {
+        List <Anime> allAnime = new ArrayList<>(AnimeData.getAnimeList());
+        Collections.shuffle(allAnime);
+        return new ArrayList<>(allAnime.subList(0, Math.min(6, allAnime.size())));
+    }
+
+    private List<Anime> getRecommendationData() {
+        List<Anime> allAnime = new ArrayList<>(AnimeData.getAnimeList());
+        Collections.reverse(allAnime);
+        return new ArrayList<>(allAnime.subList(0, Math.min(5, allAnime.size())));
     }
 }

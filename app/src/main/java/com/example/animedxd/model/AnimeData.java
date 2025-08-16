@@ -21,7 +21,7 @@ public class AnimeData {
         ));
 
         animeList.add(new Anime(
-                "Naruto: Shippuden",
+                "Naruto: Shippuuden",
                 "Action, Adventure, Fantasy",
                 "Two and a half years after leaving his village for intense training, Naruto Uzumaki returns to Konohagakure stronger and more determined than ever. With his dream of becoming Hokage still burning brightly, Naruto reunites with his comrades to confront the rising threat of the Akatsuki — a dangerous organization of rogue ninja bent on capturing the tailed beasts. As friendships are tested and devastating truths come to light, Naruto faces battles that challenge not only his strength, but his beliefs, emotions, and will to protect those he loves. 'Naruto: Shippuden' delves deeper into the themes of loyalty, identity, and legacy, weaving an epic tale of war, sacrifice, and the unbreakable bonds that define a true shinobi.",
                 R.drawable.naruto
@@ -48,13 +48,24 @@ public class AnimeData {
                 R.drawable.onepiece
         ));
 
-
         animeList.add(new Anime(
                 "Kimetsu No Yaiba",
                 "Action, Supernatural",
                 "Ever since the death of his father, the burden of supporting his family has fallen on Tanjirou Kamado's shoulders. Living modestly in the mountains, he works hard and maintains hope for a better future. But his life takes a dark turn when he returns home to find his entire family slaughtered by demons, with only his sister Nezuko surviving—transformed into a demon herself. Determined to save her and avenge his family, Tanjirou joins the Demon Slayer Corps, facing terrifying creatures and uncovering secrets of a brutal, hidden world.",
                 R.drawable.kimetsu_no_yaiba
         ));
+
+        animeList.add(new Anime(
+                "My Hero Academia",
+                "Action",
+                "The appearance of \"quirks,\" newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapeshifting. This leaves the remainder of the world completely powerless, and Izuku Midoriya is one such individual.",
+                R.drawable.man_myha
+
+        ));
+
+//        animeList.add(new Anime(
+//                ""
+//        ));
 
     }
 

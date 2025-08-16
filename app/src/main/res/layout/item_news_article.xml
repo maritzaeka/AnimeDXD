@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Article Title Goes Here"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:maxLines="2"
             android:ellipsize="end"
@@ -46,8 +46,8 @@
             android:layout_height="wrap_content"
             android:text="This is a short snippet of the news article, providing a brief overview of the content..."
             android:textColor="#757575"
-            android:textSize="14sp"
-            android:maxLines="3"
+            android:textSize="12sp"
+            android:maxLines="4"
             android:ellipsize="end" />
 
         </LinearLayout>

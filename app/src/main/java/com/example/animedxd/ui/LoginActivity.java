@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             // Jika semua valid
             if (valid) {
                 GLOBAL_USERNAME = username; // simpan global
-                Toast.makeText(this, "Login success!", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Login success!", Toast.LENGTH_SHORT).show();
 
                 // Ganti ke halaman lain
                 Intent intent = new Intent(this, MainActivity.class); // ganti nama class jika beda

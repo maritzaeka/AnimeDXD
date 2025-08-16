@@ -28,7 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- NAV HOST -->
+<!--         NAV HOST -->
         <fragment
             android:id="@+id/nav_host_fragment_activity_main"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -41,6 +41,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+<!--         <fragment-->
+<!--             android:id="@+id/nav_host_fragment_activity_main"-->
+<!--             android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--             android:layout_width="0dp"-->
+<!--             android:layout_height="0dp"-->
+<!--             app:defaultNavHost="true"-->
+<!--             app:navGraph="@navigation/mobile_navigation"-->
+<!--             app:layout_constraintTop_toTopOf="parent"-->
+<!--             app:layout_constraintBottom_toBottomOf="parent"-->
+<!--             app:layout_constraintStart_toStartOf="parent"-->
+<!--             app:layout_constraintEnd_toEndOf="parent" />-->
         <!-- GARIS PUTIH ATAS BOTTOM NAV -->
         <View
             android:id="@+id/bottomDivider"
