@@ -8,8 +8,7 @@
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/blue_background"
-        android:paddingBottom="20dp"
+        android:background="@color/blue_primaryy"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,6 +19,7 @@
             android:paddingVertical="15dp"
             android:id="@+id/topNav"
             android:orientation="horizontal"
+            android:background="@color/blue_primary"
             >
             <ImageView
                 android:layout_width="20dp"
@@ -32,13 +32,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="130dp"
                 android:text="Details"
+                android:textSize="24dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+
                 >
             </TextView>
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topNav"
             android:background="@color/white"
@@ -50,6 +54,8 @@
             app:layout_constraintTop_toBottomOf="@id/lineTopNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingVertical="15dp"
+
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,18 +70,25 @@
                     android:id="@+id/image"
                     />
                 <LinearLayout
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
+                    android:layout_marginHorizontal="40dp"
                     android:layout_height="match_parent"
-                    android:paddingHorizontal="25dp"
-                    android:paddingVertical="25dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="10dp"
                     android:orientation="vertical"
-                    android:layout_marginBottom="40dp"
+                    android:layout_marginBottom="60dp"
+                    android:background="@drawable/rounded_white"
                     >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Death Note"
                         android:id="@+id/Title"
+                        android:textSize="24dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/font_dark_blue"
+                        android:layout_marginLeft="10dp"
 
                         />
                     <LinearLayout
@@ -91,14 +104,24 @@
                             android:paddingHorizontal="15dp"
                             android:paddingVertical="1dp"
                             android:layout_marginHorizontal="7dp"
-                            android:background="@drawable/genre_background"
                             android:id="@+id/genres"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="Genre : "
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/font_dark_blue"
+
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="Historical"
                                 android:id="@+id/genrestext"
+                                android:textSize="16dp"
+                                android:textColor="@color/font_dark_blue"
                                 />
                         </LinearLayout>
 
@@ -115,13 +138,16 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:background="@color/white"
+                            android:background="@color/blue_primaryy"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Synopsis"
                             android:layout_marginVertical="10dp"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             />
                         <TextView
                             android:layout_width="wrap_content"
@@ -129,11 +155,14 @@
                             android:text="Synopsis"
                             android:id="@+id/synopsisText"
                             android:layout_marginBottom="15dp"
+                            android:textSize="16dp"
+                            android:textColor="@color/black"
+                            android:justificationMode="inter_word"
                             />
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="2dp"
-                            android:background="@color/white"
+                            android:background="@color/blue_primaryy"
                             />
                         <TextView
                             android:layout_width="match_parent"
@@ -141,15 +170,19 @@
                             android:textAlignment="center"
                             android:text="Put your review"
                             android:layout_margin="15dp"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:textColor="@color/font_dark_blue"
                             />
                         <Button
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:padding="10dp"
-                            android:background="@color/white"
+                            android:backgroundTint="@color/font_dark_blue"
                             android:id="@+id/ButtonReview"
                             android:text="Here!!"
+
                         />
 
                     </LinearLayout>
