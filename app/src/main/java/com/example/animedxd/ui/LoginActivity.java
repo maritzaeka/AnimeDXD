@@ -2,7 +2,10 @@ package com.example.animedxd.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.widget.Button;
+import android.os.Handler;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +37,18 @@ public class LoginActivity extends AppCompatActivity {
         Button loginButton = findViewById(R.id.loginButton);
 
         loginButton.setOnClickListener(v -> {
+            // Ganti warna button ke #8CC5FA saat klik
+            loginButton.setBackgroundTintList(
+                    ColorStateList.valueOf(Color.parseColor("#8CC5FA"))
+            );
+
+            // Balikin lagi ke #3A5987 setelah 150ms
+            new Handler().postDelayed(() -> {
+                loginButton.setBackgroundTintList(
+                        ColorStateList.valueOf(Color.parseColor("#3A5987"))
+                );
+            }, 150);
+
             String username = usernameField.getText().toString().trim();
             String password = passwordField.getText().toString().trim();
 

@@ -22,7 +22,7 @@
         android:text="Please write something!"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        android:textColor="@color/red_logout"
         android:visibility="gone"
         />
 
