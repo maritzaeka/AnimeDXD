@@ -48,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
         navBottom = findViewById(R.id.nav_bottom);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            if (destination.getId() == R.id.navigation_detail) {
+                toolbar.setVisibility(View.GONE);
+                navBottom.setVisibility(View.GONE);
+            } else {
+                toolbar.setVisibility(View.VISIBLE);
+                navBottom.setVisibility(View.VISIBLE);
+
+            }
+        });
+
         // Configure the fragments that should be considered as top-level destinations
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home,
