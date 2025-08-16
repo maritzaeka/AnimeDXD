@@ -1,10 +1,11 @@
 package com.example.animedxd.model;
 
+
 public class Anime {
     private String title;
     private String genre;
     private String description;
-    private int imageResId; // atau String imageUrl jika menggunakan gambar dari internet
+    private int imageResId;
 
     public Anime(String title, String genre, String description, int imageResId) {
         this.title = title;

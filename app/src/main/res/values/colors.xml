@@ -20,5 +20,6 @@
     <color name="card_list">#F1F4FB</color>
     <color name="top_bar_dark_gray">#333333</color>
     <color name="blue_background">#90b4e4</color>
+    <color name="red_logout">#F64646</color>
 
 </resources>
