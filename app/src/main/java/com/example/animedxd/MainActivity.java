@@ -8,11 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private BottomNavigationView navBottom;
     private NavController navController;
+    private View topDivider;
+    private View bottomDivider;
+    private ImageView logoImageView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,23 +46,55 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar.setNavigationIcon(R.drawable.ic_menu); // icon hamburger di kiri
         toolbar.setNavigationOnClickListener(v -> {
-            Toast.makeText(this, "Hamburger diklik!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Hamburger diklik!", Toast.LENGTH_SHORT).show();
             showLogoutPopup(v);
         });
 
         // Setup Navigation
         navBottom = findViewById(R.id.nav_bottom);
+        topDivider = findViewById(R.id.topDivider);
+        bottomDivider = findViewById(R.id.bottomDivider);
+        logoImageView = findViewById(R.id.imageView2);
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 
+//        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+//            if (destination.getId() == R.id.navigation_detail) {
+//                toolbar.setVisibility(View.GONE);
+//                navBottom.setVisibility(View.GONE);
+//            } else {
+//                toolbar.setVisibility(View.VISIBLE);
+//                navBottom.setVisibility(View.VISIBLE);
+//
+//            }
+//        });
+
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            View navHost = findViewById(R.id.nav_host_fragment_activity_main);
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) navHost.getLayoutParams();
+
             if (destination.getId() == R.id.navigation_detail) {
                 toolbar.setVisibility(View.GONE);
+                topDivider.setVisibility(View.GONE); // Sembunyikan garis putih atas
+                bottomDivider.setVisibility(View.GONE); // Sembunyikan garis putih bawah
                 navBottom.setVisibility(View.GONE);
+                logoImageView.setVisibility(View.GONE); // Sembunyikan logo tengah
+
+                // Hapus margin top/bottom
+//                params.topMargin = 0;
+//                params.bottomMargin = 0;
             } else {
                 toolbar.setVisibility(View.VISIBLE);
+                topDivider.setVisibility(View.VISIBLE);
+                bottomDivider.setVisibility(View.VISIBLE);
                 navBottom.setVisibility(View.VISIBLE);
+                logoImageView.setVisibility(View.VISIBLE);
 
+                // Kembalikan margin default
+//                params.topMargin = getResources().getDimensionPixelSize(R.dimen.);
+//                params.bottomMargin = getResources().getDimensionPixelSize(R.dimen.;
             }
+//            navHost.setLayoutParams(params);
         });
 
         // Configure the fragments that should be considered as top-level destinations
@@ -78,13 +116,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             // Show toast according to menu item
-            if (id == R.id.navigation_home) {
-                Toast.makeText(this, "Home pressed", Toast.LENGTH_SHORT).show();
-            } else if (id == R.id.navigation_list) {
-                Toast.makeText(this, "List pressed", Toast.LENGTH_SHORT).show();
-            } else if (id == R.id.navigation_about) {
-                Toast.makeText(this, "About pressed", Toast.LENGTH_SHORT).show();
-            }
+//            if (id == R.id.navigation_home) {
+////                Toast.makeText(this, "Home pressed", Toast.LENGTH_SHORT).show();
+//            } else if (id == R.id.navigation_list) {
+////                Toast.makeText(this, "List pressed", Toast.LENGTH_SHORT).show();
+//            } else if (id == R.id.navigation_about) {
+////                Toast.makeText(this, "About pressed", Toast.LENGTH_SHORT).show();
+//            }
 
             // Navigate with popUpTo to clear previous fragments
             NavOptions navOptions = new NavOptions.Builder()
@@ -121,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnLogout = popupView.findViewById(R.id.btn_logout);
         btnLogout.setOnClickListener(v -> {
             popupWindow.dismiss();
-            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
