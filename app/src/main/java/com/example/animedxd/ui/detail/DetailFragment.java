@@ -15,6 +15,11 @@ import com.example.animedxd.R;
 import android.widget.LinearLayout;
 import android.app.AlertDialog;
 
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Handler;
+
+
 public class DetailFragment extends Fragment {
 
     public DetailFragment() {}
@@ -60,6 +65,13 @@ public class DetailFragment extends Fragment {
 
         // Set click listener
         buttonReview.setOnClickListener(v -> {
+            // Change to pressed color
+            buttonReview.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#8CC5FA")));
+
+            // Restore after 150ms
+            new Handler().postDelayed(() -> {
+                buttonReview.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#3A5987")));
+            }, 150);
             // Show popup
             // Inflate the custom view
             View dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_review, null);
@@ -76,6 +88,13 @@ public class DetailFragment extends Fragment {
 
             // Post button click
             postButton.setOnClickListener(postView -> {
+                // Change to pressed color
+                postButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#8CC5FA")));
+
+                // Restore after 150ms
+                new Handler().postDelayed(() -> {
+                    postButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#3A5987")));
+                }, 150);
                 String reviewText = reviewEditText.getText().toString().trim();
                 if (reviewText.isEmpty()) {
                     errorMsg.setVisibility(View.VISIBLE); // Show error
