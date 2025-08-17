@@ -64,34 +64,6 @@ public class MangaFragment extends Fragment {
         MangaAdapter adapter = new MangaAdapter(animeList);
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnItemClickCallback(data -> {
-            showSelectedManga(data);
-        });
-    }
-
-    private void showSelectedManga(Anime anime){
-        if (getActivity()==null) return;
-
-        View mainContentGroup = getActivity().findViewById(R.id.mainContentGroup);
-        View detailContainer = getActivity().findViewById(R.id.detail_container);
-
-        if(mainContentGroup != null && detailContainer!= null){
-            mainContentGroup.setVisibility(View.GONE);
-            detailContainer.setVisibility(View.VISIBLE);
-        }
-
-        DetailFragment detailFragment = new DetailFragment();
-        Bundle args = new Bundle();
-        args.putString("title", anime.getTitle());
-        args.putString("genre", anime.getGenre());
-        args.putString("synopsis", anime.getDescription());
-        args.putInt("imageRes", anime.getImageResId());
-        detailFragment.setArguments(args);
-
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.detail_container, detailFragment)
-                .addToBackStack(null)
-                .commit();
     }
 
     private List<Anime> getPopularMangaData() {

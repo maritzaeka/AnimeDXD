@@ -28,12 +28,12 @@ public class ImageCarouselAdapter extends RecyclerView.Adapter<ImageCarouselAdap
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        holder.carouselImageView.setImageResource(imageResIds.get(position));
+        holder.carouselImageView.setImageResource(imageResIds.get(position % imageResIds.size()));
     }
 
     @Override
     public int getItemCount() {
-        return imageResIds.size();
+        return Integer.MAX_VALUE;
     }
 
     public static class ImageViewHolder extends RecyclerView.ViewHolder {
