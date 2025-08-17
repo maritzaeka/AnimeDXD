@@ -33,10 +33,7 @@ public class NewsFragment extends Fragment {
         @Override
         public void run() {
             if (imageCarouselViewPager != null && imageCarouselViewPager.getAdapter() != null) {
-                int currentItem = imageCarouselViewPager.getCurrentItem();
-                int totalItems = imageCarouselViewPager.getAdapter().getItemCount();
-                int nextItem = (currentItem + 1) % totalItems;
-                imageCarouselViewPager.setCurrentItem(nextItem, true); // Smooth scroll
+                imageCarouselViewPager.setCurrentItem(imageCarouselViewPager.getCurrentItem() + 1, true);
                 carouselHandler.postDelayed(this, 5000); // Auto-scroll every 5 seconds
             }
         }
@@ -63,30 +60,13 @@ public class NewsFragment extends Fragment {
 
         // Set up click listeners for carousel navigation arrows
         btnPrevCarousel.setOnClickListener(v -> {
-            int currentItem = imageCarouselViewPager.getCurrentItem();
-            if (currentItem > 0) {
-                imageCarouselViewPager.setCurrentItem(currentItem - 1, true);
-            } else {
-                // Loop to the last item if at the beginning
-                imageCarouselViewPager.setCurrentItem(imageCarouselViewPager.getAdapter().getItemCount() - 1, true);
-            }
-            // Reset auto-scroll timer on manual interaction
-            carouselHandler.removeCallbacks(carouselRunnable);
-            carouselHandler.postDelayed(carouselRunnable, 5000);
+            imageCarouselViewPager.setCurrentItem(imageCarouselViewPager.getCurrentItem() - 1, true);
+            resetAutoScrollTimer();
         });
 
         btnNextCarousel.setOnClickListener(v -> {
-            int currentItem = imageCarouselViewPager.getCurrentItem();
-            int totalItems = imageCarouselViewPager.getAdapter().getItemCount();
-            if (currentItem < totalItems - 1) {
-                imageCarouselViewPager.setCurrentItem(currentItem + 1, true);
-            } else {
-                // Loop to the first item if at the end
-                imageCarouselViewPager.setCurrentItem(0, true);
-            }
-            // Reset auto-scroll timer on manual interaction
-            carouselHandler.removeCallbacks(carouselRunnable);
-            carouselHandler.postDelayed(carouselRunnable, 5000);
+            imageCarouselViewPager.setCurrentItem(imageCarouselViewPager.getCurrentItem() + 1, true);
+            resetAutoScrollTimer();
         });
 
 
@@ -96,6 +76,11 @@ public class NewsFragment extends Fragment {
         recyclerViewNewsArticles.setAdapter(newsArticleAdapter);
 
         return view;
+    }
+
+    private void resetAutoScrollTimer(){
+        carouselHandler.removeCallbacks(carouselRunnable);
+        carouselHandler.postDelayed(carouselRunnable, 5000);
     }
 
     @Override

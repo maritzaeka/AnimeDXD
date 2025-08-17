@@ -86,7 +86,35 @@ public class HomepageFragment extends Fragment {
 
         viewPager.setUserInputEnabled(false);
 
+        android.util.Log.d("BACK_DEBUG", "HomepageFragment: Listener untuk back stack sekarang dipasang");
+        getParentFragmentManager().addOnBackStackChangedListener(() -> {
+            // ▼▼▼ TAMBAHKAN SEMUA LOG INI ▼▼▼
+            android.util.Log.d("BACK_DEBUG", "HomepageFragment: PERUBAHAN BACK STACK TERDETEKSI!");
+            if (getView() == null) {
+                android.util.Log.e("BACK_DEBUG", "HomepageFragment: ERROR! getView() null saat listener aktif!");
+                return;
+            }
+
+            int backStackCount = getParentFragmentManager().getBackStackEntryCount();
+            android.util.Log.d("BACK_DEBUG", "HomepageFragment: Jumlah back stack sekarang: " + backStackCount);
+
+            View mainContentGroup = getView().findViewById(R.id.mainContentGroup);
+            View detailContainer = getView().findViewById(R.id.detail_container);
+            android.util.Log.d("BACK_DEBUG", "HomepageFragment: mainContentGroup ditemukan? " + (mainContentGroup != null));
+
+            if (mainContentGroup != null && detailContainer != null) {
+                if (backStackCount == 0) {
+                    android.util.Log.d("BACK_DEBUG", "HomepageFragment: Back stack kosong, MENGEMBALIKAN TAMPILAN UTAMA.");
+                    mainContentGroup.setVisibility(View.VISIBLE);
+                    detailContainer.setVisibility(View.GONE);
+                } else {
+                    android.util.Log.d("BACK_DEBUG", "HomepageFragment: Back stack > 0, tidak melakukan apa-apa.");
+                }
+            }
+        });
+
         return view;
+
     }
 
     /**
